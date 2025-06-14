@@ -1,6 +1,7 @@
-"use client";
+// "use client";
 
 import { useQuery, gql } from '@apollo/client';
+import { getClient } from "../lib/ApolloClient"; // Adjust the import path as necessary
 
 const GET_BOOKS = gql`
   query GetBooks {
@@ -13,10 +14,12 @@ const GET_BOOKS = gql`
   }
 `;
 
-export default function Home() {
-  const { loading, error, data } = useQuery(GET_BOOKS);
+export default async function Home() {
 
-  console.log("Data:", data);
+    const { data, loading } = await getClient().query({
+    query: GET_BOOKS,
+    // context: { fetchOptions: { cache: "no-store" } }, // to disable caching
+  });
   
   return (
     <main className="flex flex-col items-center justify-between min-h-screen p-24">
