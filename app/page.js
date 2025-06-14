@@ -1,6 +1,8 @@
-"use client";
+/* "use client";
 
-import { useQuery, gql } from '@apollo/client';
+import { useQuery, gql } from '@apollo/client'; */
+import { gql } from '@apollo/client';
+import { getClient } from "@/lib/ApolloClient"; // Adjust path if needed
 
 const GET_BOOKS = gql`
   query GetBooks {
@@ -13,8 +15,18 @@ const GET_BOOKS = gql`
   }
 `;
 
-export default function Home() {
-  const { loading, error, data } = useQuery(GET_BOOKS);
+export default async function Home() {
+  // const { loading, error, data } = useQuery(GET_BOOKS);
+
+   const { loading, error, data } = await getClient().query({
+    query: GET_BOOKS,
+    // You can configure caching and revalidation here
+    // context: {
+    //   fetchOptions: {
+    //     next: { revalidate: 60 }, // Revalidate every 60 seconds
+    //   },
+    // },
+  });
   
   return (
     <main className="flex flex-col items-center justify-between min-h-screen p-24">
