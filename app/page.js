@@ -15,8 +15,6 @@ const GET_BOOKS = gql`
 
 export default function Home() {
   const { loading, error, data } = useQuery(GET_BOOKS);
-
-  console.log("Data:", data);
   
   return (
     <main className="flex flex-col items-center justify-between min-h-screen p-24">
