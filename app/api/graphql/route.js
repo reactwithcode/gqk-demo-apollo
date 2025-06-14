@@ -110,5 +110,11 @@ const server = new ApolloServer({
 // 5. Create the Next.js request handler
 const handler = startServerAndCreateNextHandler(server);
 
+const config = {
+  api: {
+    bodyParser: false, // Disable body parsing to handle GraphQL requests
+  },
+};
+
 // 6. Export the handler for GET and POST requests
-export { handler as GET, handler as POST };
+export { handler as GET, handler as POST, config };
