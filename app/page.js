@@ -20,6 +20,7 @@ export default async function Home() {
 
    const { loading, error, data } = await getClient().query({
     query: GET_BOOKS,
+    
     // You can configure caching and revalidation here
     // context: {
     //   fetchOptions: {
