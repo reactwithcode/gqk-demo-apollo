@@ -10,6 +10,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@apollo/client": "^3.13.8",
     "@apollo/server": "^4.12.2",
     "@as-integrations/next": "^3.2.0",
     "axios": "^1.9.0",
