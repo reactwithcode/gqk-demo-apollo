@@ -43,10 +43,10 @@ export default async function Home() {
         <h2 className="mb-4 text-3xl font-semibold">Available Books</h2>
         {loading && <p>Loading...</p>}
         {error && <p>Error loading books: {error.message}</p>}
-        {data?.books?.map((book, index) => (
+        {data?.books?.map(({ title, author: { age, name}}, index) => (
           <div key={index} className="p-4 mb-4 border rounded shadow bg-gray-50">
-            <h3 className="text-2xl">{book.title}</h3>
-            <p>by {book.author.name}</p>
+            <h3 className="text-2xl">{title}</h3>
+            <p>by {name}</p>
           </div>
         ))}
       </div>
