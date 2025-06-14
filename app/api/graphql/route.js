@@ -112,7 +112,7 @@ const handler = startServerAndCreateNextHandler(server);
 
 const config = {
   api: {
-    bodyParser: false, // Disable body parsing to handle GraphQL requests
+    bodyParser: true, // Disable body parsing to handle GraphQL requests
   },
 };
 
